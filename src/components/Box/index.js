@@ -4,11 +4,12 @@ const Box = styled.div`
   background: #ffffff;
   border-radius: 8px;
   padding: 16px;
+  opacity: 0.9;
   
   margin-bottom: 10px;
   .boxLink {
     font-size: 14px;
-    color: #2e7bb4;
+    color: #307C2B;
     text-decoration: none;
     font-weight: 800;
   }

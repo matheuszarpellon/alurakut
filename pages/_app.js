@@ -11,7 +11,8 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: sans-serif;
-    background-color: #D9E6F6;
+    background-image: url('https://s2.glbimg.com/onjPXT3i0gMaZa8d3wbUd4U8DOc=/0x600/s.glbimg.com/po/tt2/f/original/2014/09/11/c15083ba012d056f12313b075c91.png');
+    background-size: 100%;
   }
 
   #__next {
