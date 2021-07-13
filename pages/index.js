@@ -27,7 +27,20 @@ export default function Home() {
   const [comunidades, setComunidades] = React.useState([{
     id: '12802378123789378912789789123896123', 
     title: 'Eu odeio acordar cedo',
-    image: 'https://alurakut.vercel.app/capa-comunidade-01.jpg'
+    image: 'https://alurakut.vercel.app/capa-comunidade-01.jpg',
+    link: 'https://twitch.tv/goianostuffs'
+  },
+  {
+    id: '6425723236726324',
+    title: 'Eu tenho medo do PLANTÃO',
+    image: 'https://bolavip.com/__export/1621953989418/sites/bolavip/img/2021/05/25/plantao_globo.png_554688468.png',
+    link: 'https://github.com/matheuszarpellon'
+  },
+  {
+    id: '86573534783638735378',
+    title: 'Eu queria sorvete, mas era feijão',
+    image: 'https://img10.orkut.br.com/community/5772468e52cea8b6dc2d07653185140b.jpg',
+    link: 'https://linkedin.com/in/matheuszarpellon'
   }]);
   const pessoasFavoritas = [
     'juunegreiros',
@@ -121,7 +134,7 @@ export default function Home() {
               {comunidades.map((itemAtual) => {
                 return (
                   <li key={itemAtual.id}>
-                    <a href={`/users/${itemAtual.title}`}>
+                    <a href={itemAtual.link}>
                       <img src={itemAtual.image} />
                       <span>{itemAtual.title}</span>
                     </a>
