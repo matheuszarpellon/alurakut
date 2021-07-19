@@ -22,6 +22,29 @@ function ProfileSidebar(propriedades) {
   )
 }
 
+function ProfileRelationsBox(propriedades) {
+  return (
+    <ProfileRelationsBoxWrapper>
+            <h2 className="smallTitle">
+              {propriedades.title} ({propriedades.items.length})
+            </h2>
+
+            <ul>
+              {/* {seguidores.map((itemAtual) => {
+                return (
+                  <li key={itemAtual}>
+                    <a href={`https://github.com/${itemAtual}.png`}>
+                      <img src={`https://github.com/${itemAtual}.png`} />
+                      <span>{itemAtual}</span>
+                    </a>
+                  </li>
+                )
+              })} */}
+            </ul>
+          </ProfileRelationsBoxWrapper>
+  )
+}
+
 export default function Home() {
   const usuarioAleatorio = 'matheuszarpellon';
   const [comunidades, setComunidades] = React.useState([{
@@ -51,8 +74,24 @@ export default function Home() {
     'maykbrito',
   ]
 
+  const [seguidores, setSeguidores] = React.useState([])
+  // 0 - Pegar um array de dados do github
+  React.useEffect(function () {
+  const seguidores = fetch('https://api.github.com/users/peas/followers')
+    .then(function(respostaDoServidor) {
+      return respostaDoServidor.json();
+    })
+    .then(function(respostaCompleta) {
+      setSeguidores(respostaCompleta);
+    })
+  }, []);
+  //1 - Criar um box que vai ter um map, baseado nos items do array que pegamos no github
+
+
+
   return (
     <>
+      {/* {seguidores} */}
       <AlurakutMenu />
       <MainGrid>
         {/* <Box style="grid-area: profileArea;"> */}
@@ -126,6 +165,7 @@ export default function Home() {
               })}
             </ul>
           </ProfileRelationsBoxWrapper>
+          <ProfileRelationsBox title="Seguidores" items={seguidores}/> 
           <ProfileRelationsBoxWrapper>
             <h2 className="smallTitle">
               Comunidades ({comunidades.length})
